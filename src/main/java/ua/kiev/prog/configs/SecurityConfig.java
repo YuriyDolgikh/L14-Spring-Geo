@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(entryPoint())
         .and()
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/", "/favicon.ico").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
         .and()
             .httpBasic();
