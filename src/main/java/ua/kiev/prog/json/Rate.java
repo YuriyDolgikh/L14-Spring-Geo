@@ -8,6 +8,5 @@ public class Rate {
     private long timestamp;
     private String date;
     private SingleRate rates;
-//    private String ip;
     private Location location;
 }

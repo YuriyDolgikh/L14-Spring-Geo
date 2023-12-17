@@ -31,7 +31,6 @@ public class RateController {
         LocationDTO location = geoRetriever.getLocation(ip);
         locationService.save(location);
         Rate rate = rateRetriever.getRate();
-//        rate.setIp(ip);
         rate.setLocation(Location.fromDTO(location));
 
         return rate;
