@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ua.kiev.prog.dto.LocationDTO;
 import ua.kiev.prog.json.Rate;
+import ua.kiev.prog.model.Location;
 import ua.kiev.prog.retrievers.GeoRetriever;
 import ua.kiev.prog.retrievers.RateRetriever;
 import ua.kiev.prog.services.LocationService;
@@ -29,7 +30,10 @@ public class RateController {
 
         LocationDTO location = geoRetriever.getLocation(ip);
         locationService.save(location);
+        Rate rate = rateRetriever.getRate();
+//        rate.setIp(ip);
+        rate.setLocation(Location.fromDTO(location));
 
-        return rateRetriever.getRate();
+        return rate;
     }
 }
